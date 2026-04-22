@@ -34,13 +34,3 @@ def cargar_una_pelicula(titulo, genero, puntaje):
     db_peliculas.append(nueva_pelicula)
     mensaje_de_retorno = "Película guardada correctamente"
     return mensaje_de_retorno
-
-@app.get("/genero")
-def obtener_genero():
-    return generos
-
-@app.post("/genero")
-def añadir_genero(genero):
-    generos.append(genero)
-    mensaje_de_retorno = "Género añadido correctamente."
-    return mensaje_de_retorno

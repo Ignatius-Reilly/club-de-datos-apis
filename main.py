@@ -27,9 +27,7 @@ def cargar_una_pelicula(titulo, genero, puntaje):
     if not puntaje.isdigit():
         mensaje_de_retorno = "el puntaje tiene que ser un número entero"
         return mensaje_de_retorno
-    if not genero in generos:
-        mensaje_de_retorno = "El género indicado no es válido"
-        return mensaje_de_retorno
+
     nueva_pelicula = {"titulo": titulo, "genero": genero, "puntaje": puntaje}
     db_peliculas.append(nueva_pelicula)
     mensaje_de_retorno = "Película guardada correctamente"

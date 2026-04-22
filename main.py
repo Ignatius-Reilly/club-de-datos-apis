@@ -1,8 +1,18 @@
 from fastapi import FastAPI
+import sqlite3
 
-db_peliculas = [{"titulo": "Matrix", "genero": "Accion", "puntaje": 5},
-                {"titulo": "Esperando la Carroza", "genero": "Comedia", "puntaje": 5},
-]
+def iniciar_db():
+    conn = sqlite.connect("letterbox.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXIST peliculas (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        titulo TEXT,
+        genero TEXT,
+        puntaje INTEGER)
+    """)
+    conn.commit()
+    conn.close()
 
 generos = []
 

@@ -5,3 +5,7 @@ db_peliculas = [{"titulo": "Matrix", "genero": "Accion", "puntaje": 5},
 ]
 
 app = FastAPI()
+
+@app.get("/peliculas")
+def obtener_películas():
+    return db_peliculas

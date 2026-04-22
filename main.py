@@ -4,6 +4,8 @@ db_peliculas = [{"titulo": "Matrix", "genero": "Accion", "puntaje": 5},
                 {"titulo": "Esperando la Carroza", "genero": "Comedia", "puntaje": 5},
 ]
 
+generos = []
+
 app = FastAPI()
 
 @app.get("/peliculas")
@@ -18,4 +20,14 @@ def cargar_una_pelicula(titulo, genero, puntaje):
     nueva_pelicula = {"titulo": titulo, "genero": genero, "puntaje": puntaje}
     db_peliculas.append(nueva_pelicula)
     mensaje_de_retorno = "Película guardada correctamente"
+    return mensaje_de_retorno
+
+@app.get("/genero")
+def obtener_genero():
+    return generos
+
+@app.post("/genero")
+def añadir_genero(genero):
+    generos.append(genero)
+    mensaje_de_retorno = "Género añadido correctamente."
     return mensaje_de_retorno
